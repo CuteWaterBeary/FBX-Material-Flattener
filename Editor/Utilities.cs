@@ -52,10 +52,10 @@ namespace UnityEditor.FlattenMaterial
             }
             return uv;
 
-            Vector2 RemapVector2(Vector2 value, Vector2 min, Vector2 max)
+            Vector2 RemapVector2(Vector2 value, Vector2 minimum, Vector2 maximum)
             {
-                value.x = outMin.x + (value.x - min.x) * (outMax.x - outMin.x) / (max.x - min.x);
-                value.y = outMin.y + (value.y - min.y) * (outMax.y - outMin.y) / (max.y - min.y);
+                value.x = outMin.x + (value.x - minimum.x) * (outMax.x - outMin.x) / (maximum.x - minimum.x);
+                value.y = outMin.y + (value.y - minimum.y) * (outMax.y - outMin.y) / (maximum.y - minimum.y);
                 return value;
             }
         }

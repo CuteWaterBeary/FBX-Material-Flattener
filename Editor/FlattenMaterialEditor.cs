@@ -150,19 +150,19 @@ namespace UnityEditor.FlattenMaterial
             textureSizes = totalTextureSizes.Where(x => x >= power).ToArray();
         }
 
-        void ExportGameObject(GameObject gameObject, Material combinedMaterial, string outputFolder)
+        void ExportGameObject(GameObject gObject, Material combinedMaterial, string outputFolder)
         {
-            outputFolder = outputFolder + "/" + gameObject.name + ".fbx";
-            AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(gameObject), outputFolder);
-            gameObject = AssetDatabase.LoadMainAssetAtPath(outputFolder) as GameObject;
+            outputFolder = outputFolder + "/" + gObject.name + ".fbx";
+            AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(gObject), outputFolder);
+            gObject = AssetDatabase.LoadMainAssetAtPath(outputFolder) as GameObject;
             float multiplier = 1f / power;
 
-            FlattenObject(gameObject);
+            FlattenObject(gObject);
 
-            foreach (Transform child in gameObject.transform)
+            foreach (Transform child in gObject.transform)
                 FlattenObject(child.gameObject);
 
-            ModelExporter.ExportObject(outputFolder, gameObject);
+            ModelExporter.ExportObject(outputFolder, gObject);
 
             void FlattenObject(GameObject gameObject)
             {
