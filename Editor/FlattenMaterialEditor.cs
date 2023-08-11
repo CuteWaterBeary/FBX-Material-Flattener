@@ -33,7 +33,7 @@ namespace UnityEditor.FlattenMaterial
             shaderIndex = Array.IndexOf(shaderOptions, "Standard");
         }
 
-        [MenuItem("Tools/Flatten Materials")]
+        [MenuItem("Textures/Flatten Materials (FBX only so far)")]
         public static void ShowWindow()
         {
             var window = GetWindow<FlattenMaterialEditor>();
@@ -91,7 +91,6 @@ namespace UnityEditor.FlattenMaterial
             }
             EditorGUILayout.Space();
             EditorGUI.indentLevel--;
-            EditorGUILayout.LabelField("Tool by @willenders_", EditorStyles.centeredGreyMiniLabel);
 
             bool SelectFolder(string label, ref string path)
             {
